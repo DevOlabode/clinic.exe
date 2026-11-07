@@ -87,7 +87,7 @@ clinic-exe/
 | GET | `/api/catalog` | Full catalog, for the "add item" picker |
 | POST | `/api/quote` | Takes the edited plan + contact info, saves to `quotes/`, returns a reference number |
 
-**Request to `/api/plan`:**
+**Request to** `/api/plan`**:**
 
 ```json
 {
@@ -100,7 +100,7 @@ clinic-exe/
 }
 ```
 
-**Response from `/api/plan`** (the AI produces only `item_id`, `qty`, `reason`; Python fills `name` and `unit_price` from `catalog.json` and drops any ID that is not in the catalog):
+**Response from** `/api/plan` (the AI produces only `item_id`, `qty`, `reason`; Python fills `name` and `unit_price` from `catalog.json` and drops any ID that is not in the catalog):
 
 ```json
 {
@@ -117,7 +117,7 @@ clinic-exe/
 }
 ```
 
-**How `ai.py` must work** — this is where demos die, so follow it exactly:
+**How** `ai.py` **must work** — this is where demos die, so follow it exactly:
 
 1. Build the prompt: system rules + the full catalog (IDs, names, categories only — no prices) + the intake.
 2. Ask for JSON only. Use the API's structured-output / JSON mode if available.
@@ -138,7 +138,7 @@ One owner per area. Owners decide in their area without a team vote; anything cr
 
 **A — Backend + AI**
 
-- [ ] Repo, `.gitignore` with `.env`, Flask hello-world running on everyone's machine (tonight)
+- [x] Repo, `.gitignore` with `.env`, Flask hello-world running on everyone's machine (tonight)
 - [ ] `/api/plan` returning `mock_plan.json` (tonight — this unblocks B)
 - [ ] `generate_plan()` calling Gemini; same function with a Claude branch behind an env flag
 - [ ] JSON parsing, one retry, catalog validation, totals in Python, fallback to mock
@@ -172,21 +172,21 @@ One owner per area. Owners decide in their area without a team vote; anything cr
 Each checkpoint has a pass test. If it fails, the next block goes to fixing it — not to new features. Open question: confirm the exact judging time and shift the freeze to 12 hours before it.
 
 1. **Friday night (now → midnight): Contract + skeleton.**
-    - Agree on the JSON contract above. Fill in names. Everyone clones the repo and runs Flask locally.
-    - A: `/api/plan` returns mock. C: `mock_plan.json` + first 20 catalog items. B: intake form layout. D: message ValueMed, draft demo story.
-    - **Pass:** submitting the form shows the mock plan on screen (ugly is fine).
+   - Agree on the JSON contract above. Fill in names. Everyone clones the repo and runs Flask locally.
+     - A: `/api/plan` returns mock. C: `mock_plan.json` + first 20 catalog items. B: intake form layout. D: message ValueMed, draft demo story.
+     - **Pass:** submitting the form shows the mock plan on screen (ugly is fine).
 2. **Saturday morning: Real AI, end to end.**
-    - A wires Gemini with validation + fallback. C finishes the catalog. B builds editing + totals on mock data.
-    - **Pass (noon):** a real intake → real AI plan → displayed → edited → submitted → JSON file in `quotes/`. One clinic type is enough.
+   - A wires Gemini with validation + fallback. C finishes the catalog. B builds editing + totals on mock data.
+     - **Pass (noon):** a real intake → real AI plan → displayed → edited → submitted → JSON file in `quotes/`. One clinic type is enough.
 3. **Saturday afternoon: Quality.**
-    - C runs all 5 test clinics; A and C fix the prompt until 4 of 5 produce a list a clinic owner wouldn't laugh at.
-    - B polishes the plan page and loading state. D builds slides.
-    - **Pass (6 pm):** 5 test clinics run with no crash and no invented items.
+   - C runs all 5 test clinics; A and C fix the prompt until 4 of 5 produce a list a clinic owner wouldn't laugh at.
+     - B polishes the plan page and loading state. D builds slides.
+     - **Pass (6 pm):** 5 test clinics run with no crash and no invented items.
 4. **Saturday night: Stretch or hardening.** Only if checkpoint 3 passed: one stretch item. Otherwise: fix bugs, then sleep. Exhausted teams demo badly.
 5. **Sunday morning: FEATURE FREEZE.**
-    - No new code except bug fixes approved by A. Merge to `main`, tag it.
-    - Run the demo on the presenting laptop, on the venue Wi-Fi, 3 times. Record the backup video.
-    - **Pass:** two clean full run-throughs in a row, under 3 minutes.
+   - No new code except bug fixes approved by A. Merge to `main`, tag it.
+     - Run the demo on the presenting laptop, on the venue Wi-Fi, 3 times. Record the backup video.
+     - **Pass:** two clean full run-throughs in a row, under 3 minutes.
 
 ## Risks, rules, and the demo
 
