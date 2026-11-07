@@ -1,0 +1,12 @@
+{
+    "items": [
+        {
+            "item_id": "EXAM-TBL-01",
+            "name": "Power exam table",
+            "qty": 1,
+            "unit_price": 4200,
+            "brand": "Valuemed",
+            "reason": "Core exam surface"
+        }
+    ]
+}

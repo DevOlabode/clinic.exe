@@ -1,0 +1,12 @@
+{
+  "rooms": [
+    {
+      "room": "Exam Room 1",
+      "items": [
+        {"item_id": "EXAM-TBL-01", "name": "Power exam table", "qty": 1, "unit_price": 4200, "reason": "Core exam surface"}
+      ]
+    }
+  ],
+  "total_estimate": 4200,
+  "warnings": ["Budget tier is low for 3 exam rooms"]
+}

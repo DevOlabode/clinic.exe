@@ -139,7 +139,7 @@ One owner per area. Owners decide in their area without a team vote; anything cr
 **A — Backend + AI**
 
 - [x] Repo, `.gitignore` with `.env`, Flask hello-world running on everyone's machine (tonight)
-- [ ] `/api/plan` returning `mock_plan.json` (tonight — this unblocks B)
+- [x] `/api/plan` returning `mock_plan.json` (tonight — this unblocks B)
 - [ ] `generate_plan()` calling Gemini; same function with a Claude branch behind an env flag
 - [ ] JSON parsing, one retry, catalog validation, totals in Python, fallback to mock
 - [ ] `/api/catalog` and `/api/quote` (save to `quotes/<ref>.json`)
